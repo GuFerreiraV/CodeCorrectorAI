@@ -10,12 +10,22 @@ namespace CodeCorrectorAI.Pages
         [BindProperty]
         public string InputCode { get; set; } = string.Empty;
         public string OutputCode { get; set; } = string.Empty;
-
+        
         private readonly IHttpClientFactory _httpClientFactory;
-
-        public async void OnPostAsync()
+        
+        public IndexModel(IHttpClientFactory httpClientFactory)
         {
+            _httpClientFactory = httpClientFactory;
+        }
 
+        
+        public void OnGet()
+        {
+        }   
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            return Page();
         }
     }
 }
