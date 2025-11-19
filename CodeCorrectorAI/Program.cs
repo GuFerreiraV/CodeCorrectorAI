@@ -1,9 +1,12 @@
+using CodeCorrectorAI.Repositories;
+using CodeCorrectorAI.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
-
+builder.Services.AddScoped<IGeminiService, GeminiService>();
+builder.Services.AddScoped<IExportFileService, FileExportService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
