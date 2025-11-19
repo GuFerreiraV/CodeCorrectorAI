@@ -10,19 +10,23 @@
 </div>
 <form method="post">
     <div class="form-group">
-        <label for="InputCode">Código de Entrada</label>
+        <label for="InputCode" class="input-code-label">Código de Entrada</label>
         <textarea asp-for="InputCode" rows="10" cols="80" class="form-control" placeholder="Insira seu código..."></textarea>
         <span asp-validation-for="InputCode" class="text-danger"></span>
     </div>
     <br />
-    <button type="submit" class="btn btn-primary btn-lg btn-block">Corrigir Código</button>
+    <div class="btns-class">
+    <button type="submit" class="btn btn-primary btn-lg">Corrigir Código</button>
+    <button type="submit" asp-page-handler="Exportar" class="btn btn-secondary btn-lg">Exportar Markdown</button>
+    </div>
     <div asp-validation-summary="All" class="text-danger mt-3"></div>
 </form>
 
 @if (!string.IsNullOrEmpty(Model.OutputCode))
 {
     <h2>Código Corrigido:</h2>
-    <pre class="bg-light p-3 border rounded"><code>@Model.OutputCode</code></pre>
+    @* <pre class="bg-light p-3 border rounded"><code>@Model.OutputCode</code></pre> *@
     <textarea rows="10" cols="80" class="form-control" readonly>@Model.OutputCode</textarea>
+    <input type="hidden" asp-for="OutputCode" />
 }
 

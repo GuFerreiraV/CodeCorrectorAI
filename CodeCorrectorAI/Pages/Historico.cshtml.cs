@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CodeCorrectorAI.Pages
 {
-    public class PrivacyModel : PageModel
+    public class HistoricoModel : PageModel
     {
         public void OnGet()
         {
